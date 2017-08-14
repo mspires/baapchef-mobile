@@ -1,0 +1,96 @@
+<div ui-content-for="title">
+  <span></span>
+</div>
+
+<div class="scrollable">
+ <div class="scrollable-content section">
+   
+  <form role="form" ng-submit='changepwd()'>
+       
+        <div class="form-group has-success has-feedback">
+
+			<label>Email</label>
+			<div class="input-group margin-bottom-sm">
+			  <span class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></span>
+			  <input class="form-control" type="email" ng-model="changepwdST.email" placeholder="Email address">
+			</div>
+
+        </div>
+
+        <div class="form-group">
+			
+           <label>Old Password</label>
+			<div class="input-group">
+			  <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
+			  <input class="form-control" type="password" ng-model="changepwdST.opassword" placeholder="Password">
+			</div>        
+     
+        </div>
+
+        <div class="form-group">
+			
+           <label>New Password</label>
+			<div class="input-group">
+			  <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
+			  <input class="form-control" type="password" ng-model="changepwdST.npassword" placeholder="Password">
+			</div>        
+     
+        </div>
+
+        <div class="form-group">
+			
+           <label>Confirm Password</label>
+			<div class="input-group">
+			  <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
+			  <input class="form-control" type="password" ng-model="changepwdST.cpassword" placeholder="Password">
+			</div>        
+     
+        </div>
+
+		<br/>
+		
+		<div class="session">
+		
+			<div class="panel panel-default">
+			    <div class="panel-heading">
+			        <h3 class="panel-title">Helpful Tips</h3>
+			    </div>
+			    <div class="panel-body">
+			        <p>
+			        For your security, new passwords must meet the following requirements:
+			        </p>
+			        <ul>
+			            <li>must be between 8 to 40 characters in length</li>
+			            <li>must contain at least one upper case character, on lower case character and one number</li>
+			            <li>cannot be a previous used password</li>
+			            <li>avoid using special characters</li>
+			        </ul>
+			        
+			        For enhanced security, do not use proper names, words commonly found 
+			        in the dictionary or repeating sequences of numbers.
+			        
+			    </div>
+			</div>
+	                  
+		</div>
+
+  </form>
+  
+
+	
+	 
+ </div>
+</div>
+
+
+<div ui-content-for="navbarLeftAction">
+	<a class='btn' href="#/setting"><i class="fa fa-arrow-left"></i></a>
+</div>
+
+<div ui-content-for="navbarAction">
+	<a class='btn' ng-click='changepwd()'>Change Password</a>
+</div> 
+
+<div ui-content-for="navbarBottomAction">
+	<a class='btn' ng-click='changepwd()'><i class="fa fa-sign-in fa-lg fa-fw"></i> Change Password</a>
+</div>

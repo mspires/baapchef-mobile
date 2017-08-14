@@ -1,0 +1,52 @@
+<div class="scrollable">
+  <h1 class="scrollable-header app-name">BaapChef <small>1.0</small></h1>  
+  <div class="scrollable-content">
+    <div class="list-group" ui-turn-off='uiSidebarLeft' ng-show="isForStart()">
+		<a class="list-group-item" href="#/">Home <i class="fa fa-chevron-right pull-right"></i></a>
+		<a class="list-group-item" href="#/pay">PAY <i class="fa fa-chevron-right pull-right"></i></a>
+		<a class="list-group-item" href="#/orders">ORDER <i class="fa fa-chevron-right pull-right"></i></a>
+		<a class="list-group-item" href="#/rewards">REWARD <i class="fa fa-chevron-right pull-right"></i></a>
+		<a class="list-group-item" href="#/stores">STORES <i class="fa fa-chevron-right pull-right"></i></a>
+		<a class="list-group-item" href="#/messages">MESSAGES <i class="fa fa-chevron-right pull-right"></i></a>
+		<a class="list-group-item" href="#/gift">GIFT <i class="fa fa-chevron-right pull-right"></i></a>
+		<a class="list-group-item" href="#/ad">PROMOTION <i class="fa fa-chevron-right pull-right"></i></a>
+		<a class="list-group-item" href="#/setting">SETTING <i class="fa fa-chevron-right pull-right"></i></a>
+		<a class="list-group-item" href="#/logout">LOGOUT <i class="fa fa-chevron-right pull-right"></i></a>
+    </div>
+
+    <div class="list-group" ui-turn-off='uiSidebarLeft' ng-show="isForBeforeStart()">
+		<a class="list-group-item media" href="#/">
+	    	<div class="pull-left"><i class="fa fa-home fa-lg fa-fw"></i></div>
+			<div class="media-body"><h5 class="media-heading">Home</h5></div>
+	    </a>
+		<a class="list-group-item media" href="#/login">
+	    	<div class="pull-left"><i class="fa fa-sign-in fa-lg fa-fw"></i></div>
+			<div class="media-body"><h5 class="media-heading">Login</h5></div>
+	    </a>
+		<a class="list-group-item media" href="#/signup">
+	    	<div class="pull-left"><i class="fa fa-file-text fa-lg fa-fw"></i></div>
+			<div class="media-body"><h5 class="media-heading">Signup</h5></div>
+	    </a>
+		<a class="list-group-item media" href="#/faq">
+	    	<div class="pull-left"><i class="fa fa-question fa-lg fa-fw"></i></div>
+			<div class="media-body"><h5 class="media-heading">FAQ</h5></div>
+	    </a>
+		<a class="list-group-item media" href="#/contact">
+	    	<div class="pull-left"><i class="fa fa-share fa-lg fa-fw"></i></div>
+			<div class="media-body"><h5 class="media-heading">Contact US</h5></div>
+	    </a>
+	</div>
+
+    <div class="list-group" ui-turn-off='uiSidebarLeft' ng-show="isForOrder()">
+	    <a class="list-group-item media" href="" ng-repeat="dishgroup in dishgroups" ng-click="selectedgroup = dishgroup; filters.groupid = selectedgroup.id;">
+	        <div class="pull-left">
+	            <i class="fa fa-spoon fa-2x"></i>
+	        </div>
+	        <div class="media-body">
+	            <h5 class="media-heading">{{dishgroup.name}}</h5>
+	        </div>
+	    </a>
+	</div>
+
+  </div>
+</div>

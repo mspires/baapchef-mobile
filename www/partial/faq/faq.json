@@ -1,0 +1,27 @@
+[
+	{
+		"idx":"1",
+		"subject":"That makes sense for documents",
+		"file":"partial/faq/faq_1.html"
+	},
+	{
+		"idx":"2",
+		"subject":"Full-height app layouts: A CSS trick to make it easier",
+		"file":"partial/faq/faq_2.html"
+	},
+	{
+		"idx":"3",
+		"subject":"OK, so what’s the 21st century solution?",
+		"file":"partial/faq/faq_3.html"
+	},
+	{
+		"idx":"4",
+		"subject":"More nesting (or, tablet-style layouts)",
+		"file":"partial/faq/faq_4.html"
+	},
+	{
+		"idx":"5",
+		"subject":"Enabling touch scrolling",
+		"file":"partial/faq/faq_5.html"
+	}				
+]

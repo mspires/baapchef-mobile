@@ -1,0 +1,72 @@
+<div ui-content-for="title">
+  <span>Receipt</span>
+</div>
+
+<div class="scrollable">
+  	<div class="scrollable-content section">
+	        <div class="panel panel-default">
+	        	        
+	            <div class="panel-body">
+	                <div style="text-align: center">
+	                    <h3>{{restaurant.name}}</h3>
+	                    
+	                        <div>{{address.address1}}</div>
+		                    <div>{{address.city}} 
+		                        {{address.state}} 
+		                        {{$address.zip}}</div>
+	               
+	                    <div>{{restaurant.phone}}</div>  
+	                </div>
+	                
+	                <table  style="margin-top: 20px; width: 100%">
+	                 <tr ng-repeat="orderitem in selectedorder.orderitems">
+	                     <td>
+	                        <img ng-src="{{rooturl}}{{orderitem.imagepath}}" style="width: 64px" />
+	                     </td>
+	                     <td style="vertical-align: middle;" data-title="Name">{{orderitem.name}}</td>
+	                     <td style="vertical-align: middle;" data-title="Quantity">{{orderitem.qty}}</td>
+	                     <td style="vertical-align: middle;" data-title="Price">{{orderitem.price | currency:"$ " }}</td>
+	                 </tr>
+	                </table>
+	                <hr/>
+	                <table style="width: 100%">
+	                    <tr>
+	                        <td>Sub Total</td>
+	                        <td style="text-align: right">{{getSubTotal() | currency:"$ " }}</td>
+	                    </tr>   
+	                    <tr>
+	                        <td>Tax</td>
+	                        <td style="text-align: right">{{ getTax() | currency:"$ " }}</td>
+	                    </tr>  
+	                    <tr>
+	                        <td>Total</td>
+	                        <td style="text-align: right">{{ getTotal() | currency:"$ " }}</td>
+	                    </tr>                                               
+	                </table>   
+	                
+	                <div  style="margin-top: 20px; text-align: center">
+	                	{{selectedorder.order.orderdate}}
+	                </div>
+	                
+	                <hr/>
+	                
+	                Became a member of manpuku.
+	                It is easy. just use you smart phone and install baapchef.
+	                or ask front desk. 
+	                
+	            </div>
+	        </div>
+	</div>
+</div>	
+
+
+<div ui-content-for="navbarLeftAction">
+	<a class='btn' href="#/orders"><i class="fa fa-arrow-left"></i></a>
+</div>
+
+<div ui-content-for="navbarAction">
+</div> 
+
+<div ui-content-for="navbarBottomAction">
+	<a href="#/" class="btn btn-navbar"><i class="fa fa-cog fa-navbar"></i> HOME</a>
+</div>

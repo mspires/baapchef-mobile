@@ -1,0 +1,50 @@
+<div ui-content-for="title">
+  <span>{{restaurant.name}}</span>
+</div>
+
+<div class="scrollable">
+  <div class="scrollable-content section">
+
+		<div class="section">
+		
+		  <div class="panel panel-default">
+		    <div class="panel-heading">
+				<div class="btn-group pull-right">
+					<span ng-click="deletetakeoutitem(lastselected.id)"><i class="fa fa-minus"></i><span>
+				</div>		    
+		      	<h3 class="panel-title" style="white-space: nowrap; overflow: hidden">{{lastselected.name}}</h3>
+		    </div>
+		    <div class="panel-body">
+		       <img ng-src="{{rooturl}}{{lastselected.imagepath}}" style="width:100%; height:100%" />
+		       <div style="height: 52px; overflow: hidden">{{lastselected.note}}</div>
+		       <b class="pull-right">{{lastselected.price | currency:"$" }}</b>
+		    </div>
+		  </div>
+		
+		</div>		
+
+		<div class="section">
+			<div class="panel panel-default">
+				<div class="panel-heading">	
+				{{orderitems.length}} items selected	
+		    	</div>
+				<div class="panel-body">		 	   
+					<div class="clearfix"><span class="pull-left">SUB TOTAL</span><span class="pull-right">{{subtotal | currency:"$"}}</span></div>
+					<div class="clearfix"><span class="pull-left">TAX</span><span class="pull-right">{{tax | currency:"$"}}</span></div>
+					<div class="clearfix"><span class="pull-left">TOTAL</span><span class="pull-right">{{total | currency:"$"}}</span></div>
+				</div>
+			</div>
+		</div>
+  </div>
+</div>
+
+<div ui-content-for="navbarLeftAction">
+	
+</div>
+<div ui-content-for="navbarAction">
+<div ui-content-for="navbarBottomAction">
+	<a href="#/takeoutorderview" class="btn btn-navbar"><i class="fa fa-exclamation-circle fa-navbar"></i> VIEW ORDERS</a>
+	<a href="#/home" class="btn btn-navbar"><i class="fa fa-cog fa-navbar"></i> Continue</a>
+</div><a class="btn" href="#/home"><i class="fa fa-arrow-left"></i></a></div> 
+
+

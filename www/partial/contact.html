@@ -1,0 +1,49 @@
+<div ui-content-for="title">
+  <span></span>
+</div>
+
+<div class="scrollable">
+ <div class="scrollable-content section">
+   
+  <form role="form" ng-submit='contact()'>
+        
+        <div class="form-group has-success has-feedback">
+
+			<label>Subject</label>
+			<div class="input-group margin-bottom-sm">
+			  <span class="input-group-addon"><i class="fa fa-pencil fa-fw"></i></span>
+			  <input class="form-control" type="text" ng-model="contactST.subject" placeholder="Subject">
+			</div>
+
+        </div>
+    
+        <div class="form-group">
+
+			<label>Question</label>
+			<div class="input-group margin-bottom-sm">
+				<span class="input-group-addon"><i class="fa fa-align-justify fa-fw"></i></span>
+			  	<textarea class="form-control" ng-model="contactST.note" row=5 placeholder="Question"></textarea>
+			</div>
+
+        </div>        
+    
+    <hr>
+
+ 	<div class="btn-group open">
+	    <button class="btn btn-primary btn-block">
+	      <i class="fa fa-envelope-o fa-lg fa-fw"></i> Send
+	    </button>
+	</div>    
+
+  </form>
+ </div>
+</div>
+
+
+<div ui-content-for="navbarAction">
+	<a class='btn' ng-click='contact()'><i class="fa fa-envelope-o fa-lg fa-fw"></i> Send</a>
+</div>
+
+<div ui-content-for="navbarBottomAction">
+  <a class='btn' ng-click='contact()'><i class="fa fa-envelope-o fa-lg fa-fw"></i> Send</a>
+</div>

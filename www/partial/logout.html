@@ -1,0 +1,30 @@
+<div ui-content-for="title">
+  <span></span>
+</div>
+
+<div class="scrollable">
+ <div class="scrollable-content section">
+   
+  <form role="form" ng-submit='logout()'>
+     
+    <img src="img/waiter.png"/> 
+	
+	<hr/>
+	
+	<div class="btn-group open">
+	    <button class="btn btn-primary btn-block">
+	      <i class="fa fa-sign-out fa-lg fa-fw"></i> Logout
+	    </button>
+	</div>
+
+  </form>
+ </div>
+</div>
+
+
+<div ui-content-for="navbarLeftAction">
+	<a class='btn' href="#/setting"><i class="fa fa-arrow-left"></i></a>
+</div>
+<div ui-content-for="navbarAction">
+	<a class='btn' ng-click='logout()'>Logout</a>
+</div> 

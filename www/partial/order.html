@@ -1,0 +1,54 @@
+<div ui-content-for="title">
+  <span>{{restaurant.name}}</span>
+</div>
+
+<div class="scrollable">
+  <div class="scrollable-content section">
+
+    <div class="section" style="float: left; width: 50%">
+
+      <div class="panel panel-default" ng-repeat="dish in dishes | filter: filters : true" ng-show="$index % 2 == 0">
+        <div class="panel-heading">
+          <div class="btn-group pull-right">
+          	<span ng-click="additem(dish.id)"><i class="fa fa-plus"></i><span>
+          </div>
+          <h3 class="panel-title" style="white-space: nowrap; overflow: hidden">{{dish.name}}</h3>
+        </div>
+        <div class="panel-body">
+           <img ng-src="{{rooturl}}{{dish.imagepath}}" style="width:100%; height:100%" />
+           <div style="height: 52px; overflow: hidden">{{dish.note}}</div>
+           <b class="pull-right">{{dish.price | currency:"$" }}</b>
+        </div>
+      </div>
+
+    </div>
+    
+    <div class="section" style="float: left; width: 50%">
+
+      <div class="panel panel-default" ng-repeat="dish in dishes | filter: filters : true" ng-show="$index % 2 == 1">
+        <div class="panel-heading">
+          <div class="btn-group pull-right">
+              <span ng-click="additem(dish.id)"><i class="fa fa-plus"></i><span>
+          </div>
+          <h3 class="panel-title" style="white-space: nowrap; overflow: hidden">{{dish.name}}</h3>
+        </div>
+        <div class="panel-body">
+           <img ng-src="{{rooturl}}{{dish.imagepath}}" style="width:100%; height:100%" />
+           <div style="height: 52px; overflow: hidden">{{dish.note}}</div>
+           <b class="pull-right">{{dish.price | currency:"$" }}</b>
+        </div>
+      </div>
+
+    </div>
+   
+  </div>
+</div>
+
+
+<div ui-content-for="navbarAction">
+</div> 
+
+<div ui-content-for="navbarBottomAction">
+	<a href="#/home" class="btn btn-navbar"><i class="fa fa-exclamation-circle fa-navbar"></i> HOME</a>
+	<a href="#/orderview" class="btn btn-navbar"><i class="fa fa-exclamation-circle fa-navbar"></i> VIEW ORDERS</a>
+</div>

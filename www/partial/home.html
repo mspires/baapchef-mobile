@@ -1,0 +1,35 @@
+<div ui-content-for="title">
+	<span>BaapChef</span>
+</div>
+
+
+
+<div class="scrollable">
+  <div class="scrollable-content section">
+
+    <div class="section">
+
+      <div class="panel panel-default" ng-repeat="dish in takeoutes | filter: takeoutfilters : true">
+        <div class="panel-heading">
+          <div class="btn-group pull-right">
+          	<span ng-click="addtakeoutitem(dish.id)"><i class="fa fa-plus"></i><span>
+          </div>
+          <h3 class="panel-title" style="white-space: nowrap; overflow: hidden">{{dish.name}}</h3>
+        </div>
+        <div class="panel-body">
+           <img ng-src="{{rooturl}}{{dish.imagepath}}" style="width:100%; height:100%" />
+           <div style="height: 52px; overflow: hidden">{{dish.note}}</div>
+           <b class="pull-right">{{dish.price | currency:"$" }}</b>
+        </div>
+      </div>
+
+    </div>
+    
+  </div>
+</div>
+
+<div ui-content-for="navbarBottomAction">
+	<a class='btn' ng-click='refreshtakeout("8.00")'>$ 8.00</a>
+	<a class='btn' ng-click='refreshtakeout("10.00")'>$ 10.00</a>
+	<a class='btn' ng-click='refreshtakeout("12.00")'>$ 12.00</a>
+</div>

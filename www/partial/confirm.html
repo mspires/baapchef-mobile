@@ -1,0 +1,38 @@
+<div ui-content-for="title">
+  <span></span>
+</div>
+
+<div class="scrollable">
+ <div class="scrollable-content section">
+   
+  <form role="form" ng-submit='confirm()'>
+
+        <div class="form-group has-success has-feedback">
+
+			<label>Confirm Code</label>
+			<div class="input-group margin-bottom-sm">
+			  <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
+			  <input class="form-control" type="text" ng-model="signupST.confirm" placeholder="Cofirm Code">
+			</div>
+
+        </div>
+    
+    <hr>
+
+	<div class="btn-group open">
+	    <button class="btn btn-primary btn-block">
+	      <i class="fa fa-sign-in fa-lg fa-fw"></i> Confirm
+	    </button>
+	</div>
+
+  </form>
+ </div>
+</div>
+
+<div ui-content-for="navbarAction">
+  <a class='btn' ng-click='confirm()'>Confirm</a>
+</div>
+
+<div ui-content-for="navbarBottomAction">
+  <a class='btn' ng-click='confirm()'>Confirm</a>
+</div>

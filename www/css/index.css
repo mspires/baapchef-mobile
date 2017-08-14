@@ -1,0 +1,531 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+* {
+    -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
+}
+
+body {
+    font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
+    font-size:12px;
+    height:100%;
+    margin:0px;
+    padding:0px;
+    width:100%;
+    background-color: #FFFFFF;
+}
+
+/* Portrait layout (default) */
+.appHome {
+    background:url(../img/logo.png) no-repeat center top; /* 170px x 200px */
+    position:absolute;             /* position in the center of the screen */
+    left:50%;
+    top:50%;
+    height:50px;                   /* text area height */
+    width:225px;                   /* text area width */
+    text-align:center;
+    padding:180px 0px 0px 0px;     /* image height is 200px (bottom 20px are overlapped with text) */
+    margin:-115px 0px 0px -112px;  /* offset vertical: half of image height and text area height */
+                                   /* offset horizontal: half of text area width */
+}
+
+/* Landscape layout (with min-width) */
+@media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
+    .appHome {
+        background-position:left center;
+        padding:75px 0px 75px 170px;  /* padding-top + padding-bottom + text area = image height */
+        margin:-90px 0px 0px -198px;  /* offset vertical: half of image height */
+                                      /* offset horizontal: half of image width and text area width */
+    }
+}
+
+h1 {
+    font-size:24px;
+    font-weight:normal;
+    margin:0px;
+    overflow:visible;
+    padding:0px;
+    text-align:center;
+}
+
+.event {
+    border-radius:4px;
+    -webkit-border-radius:4px;
+    color:#FFFFFF;
+    font-size:12px;
+    margin:0px 30px;
+    padding:2px 0px;
+}
+
+.event.listening {
+    background-color:#333333;
+    display:block;
+}
+
+.event.received {
+    background-color:#4B946A;
+    display:none;
+}
+
+@keyframes fade {
+    from { opacity: 1.0; }
+    50% { opacity: 0.4; }
+    to { opacity: 1.0; }
+}
+ 
+@-webkit-keyframes fade {
+    from { opacity: 1.0; }
+    50% { opacity: 0.4; }
+    to { opacity: 1.0; }
+}
+ 
+.blink {
+    animation:fade 3000ms infinite;
+    -webkit-animation:fade 3000ms infinite;
+}
+
+.animate-enter, 
+.animate-leave
+{ 
+    -webkit-transition: 400ms cubic-bezier(0.420, 0.000, 1.000, 1.000) all;
+    -moz-transition: 400ms cubic-bezier(0.420, 0.000, 1.000, 1.000) all;
+    -ms-transition: 400ms cubic-bezier(0.420, 0.000, 1.000, 1.000) all;
+    -o-transition: 400ms cubic-bezier(0.420, 0.000, 1.000, 1.000) all;
+    transition: 400ms cubic-bezier(0.420, 0.000, 1.000, 1.000) all;
+    position: relative;
+    display: block;
+} 
+
+.animate-enter.animate-enter-active, 
+.animate-leave {
+    opacity: 1;
+
+}
+
+.animate-leave.animate-leave-active,
+.animate-enter {
+    opacity: 0;
+}
+
+
+.ng-animate {
+    -webkit-transition: 400ms cubic-bezier(0.420, 0.000, 1.000, 1.000) all;
+    -moz-transition: 400ms cubic-bezier(0.420, 0.000, 1.000, 1.000) all;
+    -ms-transition: 400ms cubic-bezier(0.420, 0.000, 1.000, 1.000) all;
+    -o-transition: 400ms cubic-bezier(0.420, 0.000, 1.000, 1.000) all;
+    transition: 400ms cubic-bezier(0.420, 0.000, 1.000, 1.000) all;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hide;
+}
+
+.ng-enter {
+    opacity: 0;
+}
+.ng-enter.ng-enter-active {
+    opacity: 1;
+}
+
+.ng-leave {
+    opacity: 1;
+}
+
+.ng-leave.ng-leave-active {
+    opacity: 0;
+}
+
+
+.ng-invalid { border: 1px solid red; }​
+.example-leave, .example-enter {
+  -webkit-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+  -moz-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+  -ms-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+  -o-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+  transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+}
+
+.example-animate-container > * {
+  display:block;
+  padding:10px;
+}
+
+.example-enter {
+  top:-50px;
+}
+.example-enter.example-enter-active {
+  top:0;
+}
+
+.example-leave {
+  top:0;
+}
+.example-leave.example-leave-active {
+  top:50px;
+}
+
+.slidedown {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.slidedown.ng-enter,
+.slidedown.ng-leave {
+    -webkit-transition: all 1s ease;
+    transition: all 1s ease;
+}
+.slidedown.ng-enter {
+    top: -100%;
+}
+.slidedown.ng-enter-active {
+    top: 0;
+}
+.slidedown.ng-leave {
+    top: 0;
+}
+.slidedown.ng-leave-active {
+    top: 100%;
+}
+
+
+.fade {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    opacity: 1;
+}
+.fade.ng-enter,
+.fade.ng-leave {
+    -webkit-transition: all 1s ease;
+    transition: all 1s ease;
+}
+.fade.ng-enter {
+    opacity: 0;
+}
+.fade.ng-enter-active {
+    opacity: 1;
+}
+.fade.ng-leave {
+    opacity: 1;
+}
+.fade.ng-leave-active {
+    opacity: 0;
+}
+
+.slide-pop {
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+}
+.slide-pop.ng-enter,
+.slide-pop.ng-leave {
+	-webkit-transition: all 1s linear;
+	transition: all 1s linear;
+}
+.slide-pop.ng-enter {
+	opacity: 0;
+	-webkit-transform: scale(.5);
+	transform: scale(.5);
+}
+.slide-pop.ng-enter-active {
+	opacity: 1;
+	-webkit-transform: scale(1);
+	transform: scale(1);
+}
+.slide-pop.ng-leave {
+	left: 0;
+	opacity: .5;
+}
+.slide-pop.ng-leave-active {
+	left: -100%;
+	opacity: 0;
+}
+
+.reverse .page.slide-pop.ng-enter {
+	opacity: .5;
+	left: -100%;
+	-webkit-transform: scale(1);
+	transform: scale(1);
+}
+.reverse .page.slide-pop.ng-enter-active {
+	opacity: 1;
+	left: 0;
+}
+.reverse .page.slide-pop.ng-leave {
+	opacity: .5;
+	-webkit-transform: scale(1);
+	transform: scale(1);
+	left: 0;
+	right: 0;
+}
+.reverse .page.slide-pop.ng-leave-active {
+	opacity: 0;
+	-webkit-transform: scale(.5);
+	transform: scale(.5);
+}
+
+
+.slideup {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+}
+.slideup.ng-enter,
+.slideup.ng-leave {
+    -webkit-transition: all 1s ease;
+    transition: all 1s ease;
+}
+.slideup.ng-enter {
+    top: 100%;
+}
+.slideup.ng-enter-active {
+    top: 0;
+}
+.slideup.ng-leave {
+    top: 0;
+}
+.slideup.ng-leave-active {
+    top: -100%;
+}
+
+
+.box
+{
+  width: 100px;
+  height: 100px;
+  background-color: lightskyblue;
+  display: block;
+}
+
+.invisible-box
+{
+  width: 100px;
+  height: 100px;
+  background-color: lightcoral;
+  display: block;
+  opacity: 0;
+}
+
+.empty-box
+{
+  width: 100px;
+  height: 100px;
+  border: 1px solid #ffffff;
+  display: block;
+}
+
+.superlike
+{
+	position: absolute; 
+	top: 5%; 
+	left: 40%; 
+	opacity: 0;
+}
+
+.like
+{	
+	position: absolute; 
+	top: 30%; 
+	left: 80%; 
+	opacity: 0;
+}
+
+.nope
+{
+	position: absolute; 
+	top: 30%; 
+	left: 10%; 
+	opacity: 0;
+}
+
+.custom-class
+{
+	left: 0%;
+  	opacity: 1;
+}
+
+.animated-element.ng-enter,
+.animated-element.ng-leave,
+.animated-element.ng-move,
+.animated-element.custom-class-add,
+.animated-element.custom-class-remove,
+.animated-element.box-border-add,
+.animated-element.box-border-remove,
+.animated-element.box-fill-add,
+.animated-element.box-fill-remove
+{
+  -webkit-transition: 1.5s linear all;
+  transition: 1.5s linear all;
+}
+
+.animated-element.ng-enter { opacity: 0; }
+.animated-element.ng-enter.ng-enter-active { opacity: 1; }
+
+.animated-element.ng-leave { opacity: 1; }
+.animated-element.ng-leave.ng-leave-active { opacity: 0; }
+
+.animated-element.ng-move { opacity: 0; }
+.animated-element.ng-move.ng-move-active { opacity: 1; }
+.animated-element.ng-move-stagger
+{
+  /* Set a 400ms delay between each successive move animation */
+  -webkit-transition-delay: 0.4s;
+  transition-delay: 0.4s;
+
+  /*
+   * In case the stagger doesn't work then these two values
+   * must be set to 0 to avoid an accidental CSS inheritance.
+  */
+  -webkit-transition-duration: 0s;
+  transition-duration: 0s;
+}
+
+.animated-element.custom-class-add { opacity: 0; }
+.animated-element.custom-class-add.custom-class-add-active { opacity: 1; }
+
+.animated-element.custom-class-remove { opacity: 1; }
+.animated-element.custom-class-remove.custom-class-remove-active { opacity: 0; }
+
+.animated-element.box-border-add { border-color: #ffffff; }
+.animated-element.box-border-add.box-border-add-active { border-color: #808080; }
+.animated-element.box-border-remove { border-color: #808080; }
+.animated-element.box-border-remove.box-border-remove-active { border-color: #ffffff; }
+
+.animated-element.box-fill-add { background: none; }
+.animated-element.box-fill-add.box-fill-add-active { background: lightgreen; }
+.animated-element.box-fill-remove { background: lightgreen; }
+.animated-element.box-fill-remove.box-fill-remove-active { background: none; }
+
+@-webkit-keyframes blinkAndGrow
+{
+  from
+  {
+    background-color: lightcoral;
+  }
+  25%, 75%
+  {
+    transform: scale(1.1);
+    background-color: red;
+  }
+  50%
+  {
+    transform: scale(1.0);
+    background-color: lightcoral;
+  }
+  to
+  {
+    background-color: lightcoral;
+  }
+}
+
+@keyframes blinkAndGrow
+{
+  from
+  {
+    background-color: lightcoral;
+  }
+  25%, 75%
+  {
+    transform: scale(1.1);
+    background-color: red;
+  }
+  50%
+  {
+    transform: scale(1.0);
+    background-color: lightcoral;
+  }
+  to
+  {
+    background-color: lightcoral;
+  }
+}
+
+@-webkit-keyframes shrinkAndDisappear
+{
+  from
+  {
+    opacity: 1;
+  }
+  70%
+  {
+    transform: scale(0.8);
+    opacity: 0.8;
+  }
+  to
+  {
+    transform: scale(0.0);
+    opacity: 0;
+  }
+}
+
+@keyframes shrinkAndDisappear
+{
+  from
+  {
+    opacity: 1;
+  }
+  70%
+  {
+    transform: scale(0.8);
+    opacity: 0.8;
+  }
+  to
+  {
+    transform: scale(0.0);
+    opacity: 0;
+  }
+}
+
+.custom-inline-animation-1
+{
+  -webkit-transition: 1.0s linear all;
+  transition: 1.0s linear all;
+}
+
+.ng-inline-animate
+{
+  -webkit-animation: blinkAndGrow 1.5s linear;
+  animation: blinkAndGrow 1.5s linear;
+}
+
+.custom-inline-animation-2
+{
+  -webkit-animation: shrinkAndDisappear 0.8s linear;
+  animation: shrinkAndDisappear 0.8s linear;
+}
+
+.element-glow-animation
+{
+  -webkit-transition: 0.6s linear all;
+  transition: 0.6s linear all;
+}

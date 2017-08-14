@@ -1,0 +1,39 @@
+<div ui-content-for="title">
+  <span>Messages/Events</span>
+</div>
+
+<div class="scrollable">
+  <div class="scrollable-content section">
+      <div class="panel-group" 
+        ui-state='myAccordion' 
+        ui-default='0'>
+
+        <div class="panel panel-default" ng-repeat="message in messages">
+          
+          <div class="panel-heading" ui-set="{'myAccordion': message.id}">
+            <h4 class="panel-title">
+            	{{message.createdate}} 
+            	<br/>
+            	{{message.subject}}
+            </h4>
+          </div>
+          <div ui-if="myAccordion == {{message.id}}">
+            <div class="panel-body">
+            	{{message.note}}
+            </div>
+          </div>
+        
+        </div>
+      </div>
+  </div>
+</div>
+
+
+<div ui-content-for="navbarAction">
+</div>
+
+<div ui-content-for="navbarBottomAction">
+	<a class="btn btn-navbar" ng-click="changeMessage(0)"><i class="fa fa-home fa-navbar"></i> Messages</a>
+	<a class="btn btn-navbar" ng-click="changeMessage(1)"><i class="fa fa-home fa-navbar"></i> Events</a>
+	<a class="btn btn-navbar" ng-click="changeMessage(2)"><i class="fa fa-home fa-navbar"></i> Alerts</a>
+</div>

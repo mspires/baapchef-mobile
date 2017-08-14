@@ -1,0 +1,48 @@
+<div ui-content-for="title">
+  <span>Rewards</span>
+</div>
+
+<div class="scrollable">
+	
+	<div class="scrollable-content section">
+    
+    	<div class="list-group">
+
+			<div class="panel panel-default">
+			  <div class="panel-heading">
+			    <div class="btn-group pull-right">
+			    </div>
+			    <h3 class="panel-title" style="white-space: nowrap; overflow: hidden">{{customer.name}}</h3>
+			  </div>
+			  <div class="panel-body">
+			     <b class="pull-right">My Reward Point : 50,000</b>
+			  </div>
+			</div>     
+    
+			<div class="panel panel-default" ng-repeat="reward in rewards">
+			  <div class="panel-heading">
+			    <div class="btn-group pull-right">
+			    	<span ng-click="addreward(reward.id)"><i class="fa fa-plus"></i><span>
+			    </div>
+			    <h3 class="panel-title" style="white-space: nowrap; overflow: hidden">{{reward.name}}</h3>
+			  </div>
+			  <div class="panel-body">
+			     <img ng-src="{{rooturl}}{{reward.imagepath}}" style="width:100%; height:100%" />
+			     <div style="height: 52px; overflow: hidden">{{reward.note}}</div>
+			     <b class="pull-right"><del style="color: red">{{reward.price | currency:"$" }}</del></b>
+			     <br/>
+			     <b class="pull-right">bp : {{reward.rewardpt | number}}</b>
+			  </div>
+			</div>    		
+    
+    	</div>
+
+	</div>
+</div>
+
+<div ui-content-for="navbarAction">
+</div> 
+
+<div ui-content-for="navbarBottomAction">
+	<a href="#/rewardreq" class="btn btn-navbar"><i class="fa fa-cog fa-navbar"></i> View Reward Request</a>
+</div>

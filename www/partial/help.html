@@ -1,0 +1,38 @@
+<div ui-content-for="title">
+  <span>Help</span>
+</div>
+
+<div class="scrollable">
+  <div class="scrollable-content">
+    <div class='section' style="min-height: 100%">
+      <ui-state id='activeTab' default='1'></ui-state>
+
+      <div ui-if="activeTab == 1" >
+        <h3 class="page-header">Step 1</h3>
+        <p>{{lorem}}</p>
+      </div>
+
+      <div ui-if="activeTab == 2">
+        <h3 class="page-header">Step 2</h3>
+        <p>{{lorem}}</p>
+      </div>
+
+      <div ui-if="activeTab == 3">
+        <h3 class="page-header">Step 3</h3>
+        <p>{{lorem}}</p>
+      </div>
+
+      <div class="btn-group justified nav-tabs">
+        <a ui-set="{'activeTab': 1}" 
+            ui-class="{'active': activeTab == 1}" class="btn btn-default">Step 1</a>
+
+        <a ui-set="{'activeTab': 2}" 
+            ui-class="{'active': activeTab == 2}" class="btn btn-default">Step 2</a>
+
+        <a ui-set="{'activeTab': 3}" 
+            ui-class="{'active': activeTab == 3}" class="btn btn-default">Step 3</a>
+      </div>  
+    </div>
+
+  </div>
+</div>

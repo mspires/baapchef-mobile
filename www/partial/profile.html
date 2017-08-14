@@ -1,0 +1,90 @@
+<div ui-content-for="title">
+  <span></span>
+</div>
+
+<div class="scrollable">
+ <div class="scrollable-content section">
+
+	<div class="container-fluid section section-break">
+	
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">{{customer.name}}</h3>
+        </div>
+        <div class="panel-body" style="text-align:center">
+
+			<p>
+				<img alt=""  ng-src="{{rooturl}}{{customer.image}}" class="img-circle" />
+			</p>
+
+			<br/>
+			<div class="btn-group open">
+			    <button class="btn btn-primary btn-block" ng-click="takePicture()">
+			      <i class="fa fa-pencil-square-o fa-lg fa-fw"></i> Edit
+			    </button>
+			</div>
+	   
+	    </div>
+      </div>
+	</div>
+	  
+	<div class="section"> 
+		 <form role="form" ng-submit='changeprofile()'>
+		
+		       <div class="form-group has-success has-feedback">
+		
+				<label>Name</label>
+				<div class="input-group margin-bottom-sm">
+				  <span class="input-group-addon"><i class="fa fa-user fa-fw"></i></span>
+				  <input class="form-control" type="text" ng-model="customer.name" placeholder="Name">
+				</div>
+		
+		       </div>
+		               
+		       <div class="form-group has-success has-feedback">
+		
+				<label>Email</label>
+				<div class="input-group margin-bottom-sm">
+				  <span class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></span>
+				  <input class="form-control" type="email" ng-model="customer.email" placeholder="Email address">
+				</div>
+		
+		       </div>
+		
+		       <div class="form-group has-success has-feedback">
+		
+				<label>Phone Number</label>
+				<div class="input-group margin-bottom-sm">
+				  <span class="input-group-addon"><i class="fa fa-mobile fa-fw"></i></span>
+				  <input class="form-control" type="tel" ng-model="customer.phone" placeholder="Phone Number">
+				</div>
+		
+		       </div>
+		   
+		   <hr>
+		
+			<div class="btn-group open">
+			    <button class="btn btn-primary btn-block">
+			      <i class="fa fa-sign-in fa-lg fa-fw"></i> Profile
+			    </button>
+			</div>
+
+		
+		 </form>
+	</div>
+	
+	
+ </div>
+</div>
+
+
+<div ui-content-for="navbarLeftAction">
+	<a class='btn' href="#/setting"><i class="fa fa-arrow-left"></i></a>
+</div>
+<div ui-content-for="navbarAction">
+	<a class='btn' ng-click='changeprofile()'>Profile</a>
+</div>
+
+<div ui-content-for="navbarBottomAction">
+	<a class='btn' ng-click='changeprofile()'>Profile</a>
+</div>

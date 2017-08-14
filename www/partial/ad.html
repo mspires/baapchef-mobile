@@ -1,0 +1,33 @@
+<div ui-content-for="title">
+  <span>AD</span>
+</div>
+
+<div class="scrollable">
+
+	<div class="scrollable-content section" 
+	      	ui-swipe-top='swiped2("TOP")'
+	      	ui-swipe-bottom='swiped2("BOTTOM")'
+	      	ui-swipe-left='swiped2("LEFT")'
+      		ui-swipe-right='swiped2("RIGHT")'>
+      			
+ 			<div class="panel panel-default" >
+			  <div class="panel-body" >
+			     
+		 		 <img ng-src="{{adimg}}" style="width:100%"/>
+			     <img id="like" src="./img/like.png" class="like animated-element" />
+			     <img id="superlike" src="./img/slike.png" class="superlike animated-element" />
+			     <img id="nope" src="./img/nope.png" class="nope animated-element" />
+			     
+			  </div>
+			</div>    		
+
+	</div>
+</div>
+
+<div ui-content-for="navbarAction">
+</div> 
+
+<div ui-content-for="navbarBottomAction">
+	<a class="btn btn-navbar" ng-click='swiped2("RIGHT")'><i class="fa fa-exclamation-circle fa-navbar"></i> LIKE</a>
+	<a class="btn btn-navbar" ng-click='swiped2("LEFT")'><i class="fa fa-exclamation-circle fa-navbar"></i> NOPE</a>
+</div>
